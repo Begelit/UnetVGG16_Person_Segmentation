@@ -56,4 +56,5 @@ plt.imshow(array_to_img(x[1]))
 plt.imshow(y[1])
 ```
 As a result, we get the image-mask correspondence:
+
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/DataGeneratorResult.png)
