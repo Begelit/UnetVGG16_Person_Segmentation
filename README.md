@@ -13,11 +13,7 @@ In my opinion, COCO Dataset 2017 was the best choice for the human segmentation 
 from pycocotools.coco import COCO
 ```
 #### 1.1.2 Get list of images index in JSON annotations file.
-This process is implemented by the function 
-```python 
-getImgsNamesList(dataDir='../input/coco-2017-dataset/coco2017/annotations',dataType=str(),classNames=str())
-```
-Described in the notebook, the link of which is at the beginning of the section.
+This process is implemented by the function ```getImgsNamesList()``` described in the notebook, the link of which is at the beginning of the section.
 Calls to this function look like this:
 ```python
 catIds_train, imgIds_train, coco_train = getImgsNamesList(dataType='train2017',classNames='person')
