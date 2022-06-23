@@ -1,18 +1,18 @@
 # UnetVGG16_Person_Segmentation
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif.gif)
-## Creating and training CNN model based on Unet architecture with VGG16 encoder.
+## 1 Creating and training CNN model based on Unet architecture with VGG16 encoder.
 The following sections will describe the actions performed in this notebook:
 https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/unet-keras-person-cocodataset2017.ipynb
 More detailed information about the session of this section, input / output files can be obtained at the link:
 https://www.kaggle.com/code/dimalevch/unet-keras-person-cocodataset2017/data
-### Dataset
+### 1.1 Dataset
 In my opinion, COCO Dataset 2017 was the best choice for the human segmentation task because it has a configuration file managed by COCO API. In addition, the dataset has hundreds of thousands of the most varied images and several dozen classes, which allows neglecting augmentation.
-#### Download and inport COCO API
+#### 1.1.1 Download and inport COCO API
 ```python
 !pip install -q git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 from pycocotools.coco import COCO
 ```
-#### Get list of images index in JSON annotations file.
+#### 1.1.2 Get list of images index in JSON annotations file.
 This process is implemented by the function 
 ```python 
 getImgsNamesList(dataDir='../input/coco-2017-dataset/coco2017/annotations',dataType=str(),classNames=str())
@@ -40,7 +40,7 @@ Results:
  'flickr_url': 'http://farm8.staticflickr.com/7187/6967031859_5f08387bde_z.jpg',
  'id': 262145}
 ```
-#### Batch data generator.
+#### 1.1.3. Batch data generator.
 Due to the limited RAM memory of computing devices, to train the model, it is necessary to divide the data sets into small packets, which will be sequentially fed to the input of our CNN.
 The class ``` DataGenerator()``` implements a sequential passage through the configuration of the coco dataset, extracts a set of image arrays and forms their binary masks. 
 Let's try to create an instance of the class, call the generator function and get the images.
@@ -58,3 +58,5 @@ plt.imshow(y[1])
 As a result, we get the image-mask correspondence:
 
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/DataGeneratorResult.png)
+
+### 1.2 Architecture of the Unet Convolutional Neural Network model.
