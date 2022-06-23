@@ -42,7 +42,7 @@ Results:
 ```
 #### Batch data generator.
 Due to the limited RAM memory of computing devices, to train the model, it is necessary to divide the data sets into small packets, which will be sequentially fed to the input of our CNN.
-The class ```python DataGenerator()``` implements a sequential passage through the configuration of the coco dataset, extracts a set of image arrays and forms their binary masks. 
+The class ``` DataGenerator()``` implements a sequential passage through the configuration of the coco dataset, extracts a set of image arrays and forms their binary masks. 
 Let's try to create an instance of the class, call the generator function and get the images.
 ```python
 img_path_val = '../input/coco-2017-dataset/coco2017/val2017'
