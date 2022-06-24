@@ -72,6 +72,7 @@ More detailed information about the layers, their size and purpose in the diagra
 For assess the quality of the trained model, the Jaccard index was used.
 
 ![https://upload.wikimedia.org/wikipedia/commons/c/c7/Intersection_over_Union_-_visual_equation.png](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/Intersection_over_Union_-_visual_equation.png)
+
 Borrowed from source:https://upload.wikimedia.org/wikipedia/commons/c/c7/Intersection_over_Union_-_visual_equation.png
 
 The functions of this metric are implemented as follows:
