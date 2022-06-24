@@ -108,5 +108,8 @@ epochs = 15
 model_history = model.fit(train_gen, epochs=epochs, validation_data=val_gen, callbacks=callbacks)
 ```
 
+Training process:
+
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/TrainProcess.PNG)
 
 
