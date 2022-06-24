@@ -56,8 +56,15 @@ As a result, we get the image-mask correspondence:
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/DataGeneratorResult.png)
 
 ### 1.2 Architecture of the Unet Convolutional Neural Network model.
+#### 1.2.1 Layers
 Model building is achieved by creating and calling custom functions: ```conv_block()```,```define_decoder()```,```vgg16_unet()```.
 
 The constructed layers of the model can be visualized as follows:
 
-![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/VisualModel.png)
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/VisualModel_1.png)
+
+More detailed information about the layers, their size and purpose in the diagram below:
+
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/model-unet.png)
+
+#### 1.2.2 Metrics
