@@ -68,3 +68,23 @@ More detailed information about the layers, their size and purpose in the diagra
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/model-unet.png)
 
 #### 1.2.2 Metrics
+
+For assess the quality of the trained model, the Jaccard index was used.
+
+![https://upload.wikimedia.org/wikipedia/commons/c/c7/Intersection_over_Union_-_visual_equation.png]()
+
+The functions of this metric are implemented as follows:
+
+```python
+def jacard_coef(y_true, y_pred):
+    y_true = tf.cast(y_true, tf.float32)
+    y_pred = tf.cast(y_pred, tf.float32)
+    y_true_f = K.flatten(y_true)
+    y_pred_f = K.flatten(y_pred)
+    intersection = K.sum(y_true_f * y_pred_f)
+    return (intersection + 1.0) / (K.sum(y_true_f) + K.sum(y_pred_f) - intersection + 1.0)
+    
+def jacard_coef_loss(y_true, y_pred):
+    return -jacard_coef(y_true, y_pred)
+```
+###
