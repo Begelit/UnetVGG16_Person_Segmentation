@@ -1,6 +1,6 @@
 # UnetVGG16_Person_Segmentation
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif.gif)
-## 1 Creating and training CNN model based on Unet architecture with VGG16 encoder.
+## 1 Creating and training CNN model based on Unet architecture with VGG16 encoder
 The following sections will describe the actions performed in this notebook:
 https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/unet-keras-person-cocodataset2017.ipynb
 More detailed information about the session of this section, input / output files can be obtained at the link:
@@ -12,7 +12,7 @@ In my opinion, COCO Dataset 2017 was the best choice for the human segmentation 
 !pip install -q git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 from pycocotools.coco import COCO
 ```
-#### 1.1.2 Get list of images index in JSON annotations file.
+#### 1.1.2 Get list of images index in JSON annotations file
 This process is implemented by the function ```getImgsNamesList()``` described in the notebook, the link of which is at the beginning of the section.
 Calls to this function look like this:
 ```python
@@ -36,7 +36,7 @@ Results:
  'flickr_url': 'http://farm8.staticflickr.com/7187/6967031859_5f08387bde_z.jpg',
  'id': 262145}
 ```
-#### 1.1.3. Batch data generator.
+#### 1.1.3. Batch data generator
 Due to the limited RAM memory of computing devices, to train the model, it is necessary to divide the data sets into small packets, which will be sequentially fed to the input of our CNN.
 The class ``` DataGenerator()``` implements a sequential passage through the configuration of the coco dataset, extracts a set of image arrays and forms their binary masks. 
 Let's try to create an instance of the class, call the generator function and get the images.
@@ -89,4 +89,24 @@ def jacard_coef(y_true, y_pred):
 def jacard_coef_loss(y_true, y_pred):
     return -jacard_coef(y_true, y_pred)
 ```
-###
+#### 1.2.3 Compile and train the model
+
+Lets compile the model model:
+
+```python
+model = vgg16_unet(input_shape = (256,256,3))
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3), loss=[jacard_coef_loss], metrics=['accuracy', jacard_coef])
+reduce_lr = ReduceLROnPlateau(monitor='val_acc', factor=0.2, patience=5, verbose=1)
+checkpoint = tf.keras.callbacks.ModelCheckpoint('./model_epoch_{epoch:00d}', save_best_only= False)
+callbacks = [checkpoint,reduce_lr]
+```
+
+And start to train the model:
+
+```python
+epochs = 15
+model_history = model.fit(train_gen, epochs=epochs, validation_data=val_gen, callbacks=callbacks)
+```
+
+
+
