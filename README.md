@@ -168,5 +168,11 @@ As a result, we get an image of masks equal in number to frames from the video:
 ### 3.3 White background behind segmented object
 https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/create-white-background-with-mask.ipynb
 https://www.kaggle.com/code/dimalevch/create-white-background-with-mask
-![]()
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collageFrame.PNG)
+
+### 3.4 Create video/gif from collage frames
+https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/create-gif-and-video-collages-unetseg.ipynb
+https://www.kaggle.com/code/dimalevch/create-gif-and-video-collages-unetseg
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif.gif)
+
 
