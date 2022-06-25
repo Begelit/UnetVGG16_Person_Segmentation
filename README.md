@@ -173,6 +173,7 @@ https://www.kaggle.com/code/dimalevch/create-white-background-with-mask
 ### 3.4 Create video/gif from collage frames
 https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/create-gif-and-video-collages-unetseg.ipynb
 https://www.kaggle.com/code/dimalevch/create-gif-and-video-collages-unetseg
+
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif.gif)
 
 
