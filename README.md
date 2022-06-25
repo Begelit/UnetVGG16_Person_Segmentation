@@ -158,9 +158,7 @@ https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Not
 And the corresponding session is available at the link:
 https://www.kaggle.com/code/dimalevch/video-to-frames
 ### 3.2 Predict frames from video
-This process is demonstrated in this notebook:
 https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/predict-frames-from-video-unetsegm.ipynb
-And the corresponding session is available at the link:
 https://www.kaggle.com/code/dimalevch/predict-frames-from-video-unetsegm
 
 As a result, we get an image of masks equal in number to frames from the video:
