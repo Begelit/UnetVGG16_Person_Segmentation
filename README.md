@@ -55,7 +55,7 @@ As a result, we get the image-mask correspondence:
 
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/DataGeneratorResult.png)
 
-### 1.2 Architecture of the Unet Convolutional Neural Network model.
+### 1.2 Architecture of the Unet Convolutional Neural Network model
 #### 1.2.1 Layers
 Model building is achieved by creating and calling custom functions: ```conv_block()```,```define_decoder()```,```vgg16_unet()```.
 
@@ -68,7 +68,6 @@ More detailed information about the layers, their size and purpose in the diagra
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/model-unet.png)
 
 #### 1.2.2 Metrics
-
 For assess the quality of the trained model, the Jaccard index was used.
 
 ![https://upload.wikimedia.org/wikipedia/commons/c/c7/Intersection_over_Union_-_visual_equation.png](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/Intersection_over_Union_-_visual_equation.png)
@@ -90,7 +89,6 @@ def jacard_coef_loss(y_true, y_pred):
     return -jacard_coef(y_true, y_pred)
 ```
 #### 1.2.3 Compile and train the model
-
 Lets compile the model model:
 
 ```python
@@ -113,12 +111,11 @@ Training process:
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/TrainProcess.PNG)
 
 ## 2 Predicting an image mask from a test dataset
-
 Model loading methods and image mask prediction are described in this notebook: https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/predict-coco-unet-epoch21.ipynb
+
 To access the details of the session, you can go to it at the link: https://www.kaggle.com/code/dimalevch/predict-coco-unet-epoch21
 
 ### 2.1 Load model
-
 For successful loading of the model, you must specify inside the method ```tf.keras.models.load_model()``` customized functions ```jacard_coef()``` and ```jacard_coef_loss()``` which are used in assessing the quality of model training.
 
 The model load function call would be as follows:
@@ -127,7 +124,6 @@ model = tf.keras.models.load_model('../input/model-coco-unet-segm-epoch-21/model
                                    custom_objects={'jacard_coef':jacard_coef,'jacard_coef_loss':jacard_coef_loss})
 ```
 ### 2.2 Data Generator
-
 The function ```dataGenerator_test()``` implements a random receipt of an image from a test data set into an array with its further normalization.
 
 A function call that returns a batch of 15 images will look like this:
@@ -154,4 +150,20 @@ for index in range(15):
     plt.imshow(array_to_img(pred.reshape((256, 256, 1))))
 ```
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/PredictEpoch21.png)
+
+## 3 Removing the background around a segmented object. Video Frame Prediction
+### 3.1 Splitting a video file into frames
+This process is demonstrated in this notebook:
+https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/video-to-frames.ipynb
+And the corresponding session is available at the link:
+https://www.kaggle.com/code/dimalevch/video-to-frames
+### 3.2 Predict frames from video
+This process is demonstrated in this notebook:
+https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/predict-frames-from-video-unetsegm.ipynb
+And the corresponding session is available at the link:
+https://www.kaggle.com/code/dimalevch/predict-frames-from-video-unetsegm
+
+As a result, we get an image of masks equal in number to frames from the video:
+
+![]()
 
