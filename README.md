@@ -165,5 +165,5 @@ https://www.kaggle.com/code/dimalevch/predict-frames-from-video-unetsegm
 
 As a result, we get an image of masks equal in number to frames from the video:
 
-![]()
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/VideoToFramesPredict.png)
 
