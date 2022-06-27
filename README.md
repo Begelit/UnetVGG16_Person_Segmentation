@@ -1,5 +1,6 @@
 # UnetVGG16_Person_Segmentation
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif.gif)
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif_shleif.gif)
 ## 1 Creating and training CNN model based on Unet architecture with VGG16 encoder
 The following sections will describe the actions performed in this notebook:
 https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/unet-keras-person-cocodataset2017.ipynb
@@ -176,4 +177,8 @@ https://www.kaggle.com/code/dimalevch/create-gif-and-video-collages-unetseg
 
 ![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif.gif)
 
+### 3.5 Create plume from frames and masks
+https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/Jupyter%20Notebooks/create-shleif-with-masks.ipynb
+https://www.kaggle.com/code/dimalevch/create-shleif-with-masks?scriptVersionId=99443713
 
+![](https://github.com/Begelit/UnetVGG16_Person_Segmentation/blob/main/demo/collage_gif_shleif.gif)
